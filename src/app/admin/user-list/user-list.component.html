@@ -1,0 +1,30 @@
+<div class="sidebar">
+    <h2>Navigation</h2>
+    <ul>
+        <li style="background-color: transparent;"><a routerLink="/admin/users" routerLinkActive="active">Liste des
+                Utilisateurs</a></li>
+        <li style="background-color: transparent;"><a routerLink="/admin/courts" routerLinkActive="active">Liste des
+                Courts</a></li>
+    </ul>
+</div>
+<div class="content">
+    <h1>Liste des Utilisateurs</h1>
+    <ul>
+        <li *ngFor="let user of users">
+            {{ user.username }} - {{ user.enabled ? 'Enabled' : 'Disabled' }}
+            <div *ngIf="!user.enabled">
+                <button (click)="disableUser(user.id)">Confirmer le compte</button>
+            </div>
+        </li>
+    </ul>
+
+    <!-- Confirmation Dialog -->
+    <div *ngIf="confirmationModel">
+        <div class="confirmation-dialog">
+            <h2>{{ confirmationModel.title }}</h2>
+            <p>{{ confirmationModel.message }}</p>
+            <button (click)="confirmationModel.confirmAction()">{{ confirmationModel.confirmText }}</button>
+            <button (click)="confirmationModel.cancelAction()">{{ confirmationModel.cancelText }}</button>
+        </div>
+    </div>
+</div>

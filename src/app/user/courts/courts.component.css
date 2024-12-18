@@ -1,0 +1,307 @@
+.navbar {
+  background-color: transparent;
+  padding: 15px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #6b8e23;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.nav-link:active {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(0.95);
+}
+
+.courts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.court-card {
+  background: linear-gradient(135deg, #ffffff, #f8f8f8);
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.court-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.court-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+.court-info {
+  padding: 15px;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+}
+
+.court-info h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.court-info p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.court-info p b {
+  color: #555;
+}
+
+.available {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.unavailable {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.reserve-button {
+  margin: 15px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #fff;
+  background: #6b8e23;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reserve-button:disabled {
+  background: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.reserve-button:hover:not(:disabled) {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-image {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #007bff;
+  transition: color 0.3s ease-in-out;
+}
+
+.close:hover {
+  color: #0056b3;
+}
+
+/* Modal Content Styling */
+.modal-content {
+  overflow-y: auto;
+  background: #fff;
+  padding: 20px;
+  max-height: 700px;
+  border-radius: 10px;
+  width: 90%;
+  max-height: 750px;
+  max-width: 850px;
+  text-align: center;
+  position: relative;
+  scrollbar-width: thin; /* For WebKit browsers (like Chrome, Safari) */
+  scrollbar-color: #ddd #f5f5f5; /* Customize the scrollbar track and thumb color */
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 6px; /* Thinner scrollbar width */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #ddd; /* Customize the scrollbar thumb color */
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f5f5f5; /* Customize the scrollbar track color */
+}
+
+/* Date Picker */
+.date-picker {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  scrollbar-width: thin; /* For WebKit browsers (like Chrome, Safari) */
+  scrollbar-color: #ddd #f5f5f5; /* Customize the scrollbar track and thumb color */
+}
+
+.arrow-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.dates {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 0;
+  flex-grow: 1;
+}
+
+.date-card {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  min-width: 100px;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.date-card.selected {
+  background-color: #28a745;
+  color: #fff;
+  font-weight: bold;
+}
+
+.day-name {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.day-number {
+  font-size: 1.1rem;
+}
+
+/* Hour Slots */
+.hours-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.hour-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hour-card:hover:not(.reserved) {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hour-card.reserved {
+  background-color: #f8d7da;
+  color: #721c24;
+  cursor: not-allowed;
+}
+
+.hour-card.selected {
+  background-color: #28a745;
+  color: #fff;
+  font-weight: bold;
+}
+
+.hour-time {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.hour-status {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Confirm Button */
+.confirm-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirm-button:hover {
+  background-color: #0056b3;
+}

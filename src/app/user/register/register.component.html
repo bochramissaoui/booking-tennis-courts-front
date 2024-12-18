@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="container">
+        <div class="registration form">
+            <div *ngIf="error" class="alert alert-danger mb-2">{{error}}</div>
+
+            <header>Signup</header>
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+
+                <input type="text" placeholder="Enter your email" formControlName="username" class="form-control"
+                    [ngClass]="{
+                        'is-invalid': (submitted || getRegisterForm.username.touched) && getRegisterForm.username.errors,
+                        'is-valid': getRegisterForm.username.valid
+                    }">
+                <div *ngIf="(submitted || getRegisterForm.username.touched) && getRegisterForm.username.errors"
+                    class="invalid-feedback" style="margin-top: -1.3rem;">
+                    <div *ngIf="getRegisterForm.username.errors.required">Adresse email requise</div>
+                    <div *ngIf="getRegisterForm.username.errors.email">Veuillez saisir une adresse email valide</div>
+                </div>
+
+                <input type="password" placeholder="Create a password" formControlName="password" class="form-control"
+                    [ngClass]="{
+                        'is-invalid': (submitted || getRegisterForm.password.touched) && getRegisterForm.password.errors,
+                        'is-valid': getRegisterForm.password.valid
+                    }">
+                <div *ngIf="(submitted || getRegisterForm.password.touched) && getRegisterForm.password.errors"
+                    class="invalid-feedback" style="margin-top: -1.3rem;">
+                    <div *ngIf="getRegisterForm.password.errors.required">Mot de passe requis</div>
+                    <div *ngIf="getRegisterForm.password.errors.minlength">Le mot de passe doit comporter au moins 6
+                        caractères</div>
+                </div>
+
+                <input type="submit" class="button" value="Signup">
+            </form>
+
+            <div class="signup">
+                <span class="signup">Already have an account?
+                    <a routerLink="/login">Login</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

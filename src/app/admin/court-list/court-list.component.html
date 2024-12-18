@@ -1,0 +1,69 @@
+<div class="sidebar">
+    <h2>Navigation</h2>
+    <ul>
+        <li style="background-color: transparent;">
+            <a routerLink="/admin/users" routerLinkActive="active">Liste des Utilisateurs</a>
+        </li>
+        <li style="background-color: transparent;">
+            <a routerLink="/admin/courts" routerLinkActive="active">Liste des Courts</a>
+        </li>
+    </ul>
+</div>
+
+<div class="content">
+    <h1>Liste des Courts</h1>
+    <button class="add-court-btn" (click)="openAddCourtModal()">Ajouter un Court</button>
+    <ul>
+        <li *ngFor="let court of courts">
+            <img [src]="court.img" alt="{{ court.name }}" class="court-image" />
+            <strong>{{ court.name }}</strong>
+            <p>{{ court.description }}</p>
+            <p>Adresse : {{ court.adresse }}</p>
+            <p>Prix/Heure : {{ court.prixParHeure }}</p>
+            <button (click)="viewReservations(court)">Voir les Réservations</button>
+            <button class="delete-btn" (click)="deleteCourt(court.id)">Supprimer</button>
+        </li>
+    </ul>
+
+    <div class="modal" *ngIf="isAddCourtModalOpen">
+        <div class="modal-content">
+            <span class="close" (click)="closeAddCourtModal()">&times;</span>
+            <h2>Ajouter un Nouveau Court</h2>
+            <form (ngSubmit)="addCourt()">
+                <label for="name">Nom :</label>
+                <input id="name" [(ngModel)]="newCourt.name" name="name" required />
+
+                <label for="img">Image URL :</label>
+                <input id="img" [(ngModel)]="newCourt.img" name="img" />
+
+                <label for="description">Description :</label>
+                <textarea id="description" [(ngModel)]="newCourt.description" name="description" required></textarea>
+
+                <label for="adresse">Adresse :</label>
+                <input id="adresse" [(ngModel)]="newCourt.adresse" name="adresse" required />
+
+                <label for="prix">Prix par Heure :</label>
+                <input id="prix" type="number" [(ngModel)]="newCourt.prixParHeure" name="prixParHeure" required />
+
+                <label for="available">Disponible :</label>
+                <input id="available" type="checkbox" [(ngModel)]="newCourt.available" name="available" />
+
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" *ngIf="isReservationModalOpen">
+        <div class="modal-content">
+            <span class="close" (click)="closeReservationModal()">&times;</span>
+            <h2>Réservations pour {{ selectedCourt?.name }}</h2>
+            <ul>
+                <li *ngFor="let reservation of selectedCourt?.reservations">
+                    Utilisateur : {{ reservation.user.username }}<br>
+                    Début : {{ reservation.startTime | date: 'short' }} <br>
+                    Durée : {{ reservation.duration }} heures
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

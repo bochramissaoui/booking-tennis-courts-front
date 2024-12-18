@@ -1,0 +1,66 @@
+<div class="kol">
+    <nav class="navbar">
+        <div class="navbar-container">
+        </div>
+    </nav>
+    <div class="courts-container">
+        <div class="court-card" *ngFor="let court of courts">
+            <img [src]="court.img" alt="{{ court.name }}" class="court-image" />
+            <div class="court-info">
+                <h3>{{ court.name }}</h3>
+                <!-- Add Price and Address Here -->
+                <p><b>Prix Par heure: </b>{{ court.prixParHeure | currency:'DT' }}</p>
+                <p><b>Adresse:</b> {{ court.adresse }}</p>
+            </div>
+            <button class="reserve-button" [disabled]="!court.available" (click)="openModal(court)">
+                Réserver
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal" *ngIf="selectedCourt">
+        <div class="modal-content">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <div style="display: flex;justify-content: center;align-items: center;">
+                <img [src]="selectedCourt.img" alt="{{ selectedCourt.name }}" class="modal-image" />
+            </div>
+            <div class="modal-details">
+                <h2>{{ selectedCourt.name }}</h2>
+                <p>{{ selectedCourt.description }}</p>
+                <p><strong>Adresse :</strong> {{ selectedCourt.adresse }}</p>
+            </div>
+
+            <!-- Date Picker -->
+            <div class="date-picker">
+                <button class="arrow-button" (click)="previousDay()">&lt;</button>
+                <div class="dates">
+                    <div *ngFor="let day of visibleDays" class="date-card" [class.selected]="isSelectedDay(day)"
+                        (click)="selectDay(day)">
+                        <div class="day-name">{{ day.name }}</div>
+                        <div class="day-number">{{ day.date | date: 'd MMM' }}</div>
+                    </div>
+                </div>
+                <button class="arrow-button" (click)="nextDay()">&gt;</button>
+            </div>
+
+            <!-- Hour Slots -->
+            <h3>Sélectionnez la plage horaire :</h3>
+            <div class="hours-container">
+                <div *ngFor="let hour of availableHours" class="hour-card" [class.reserved]="hour.reserved"
+                    [class.selected]="isHourSelected(hour)" (click)="!hour.reserved && toggleHourSelection(hour)">
+                    <div class="hour-time">{{ hour.time }}</div>
+                    <div class="hour-status">
+                        <span *ngIf="hour.reserved" class="status-text">Réservé</span>
+                        <span *ngIf="!hour.reserved" class="status-text">Disponible</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="confirm-button" [disabled]="selectedHours.length === 0" (click)="confirmReservation()">
+                Confirmer la réservation
+            </button>
+        </div>
+    </div>
+</div>

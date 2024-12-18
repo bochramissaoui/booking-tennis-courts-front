@@ -1,0 +1,220 @@
+@import "../../../bootstrap/css/bootstrap.min.css";
+@import "../../../bootstrap/css/bootstrap-grid.css";
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  font-family: "Open Sans", sans-serif;
+  color: #555;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: normal;
+  text-align: left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  line-height: inherit;
+  font-family: "Josefin Sans", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+a,
+span {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: #555;
+  cursor: pointer;
+}
+.main-container {
+  max-width: 1920px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.inside-container {
+  max-width: 940px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.sections-detail {
+  margin: 0 0 55px;
+}
+.section-title {
+  font-family: "Roboto Slab", serif;
+  font-size: 28px;
+  line-height: 40px;
+  letter-spacing: 0.84px;
+  font-weight: 700;
+  color: #2f4f4f;
+  text-align: center;
+}
+.section-title-desc {
+  font-size: 15px;
+  line-height: 40px;
+  font-weight: 400;
+  letter-spacing: 0.45px;
+  color: #666;
+  text-align: center;
+}
+
+/*Banner*/
+.banner {
+  background-image: url(../../../assets/img/mainn.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 730px;
+  color: #fff;
+  position: relative;
+}
+.banner .banner-overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.banner .top-bar {
+  padding: 26px 15px;
+  border-bottom: 1px solid #fff;
+}
+.banner .top-bar-left,
+.top-bar-right {
+  padding-top: 24px;
+  z-index: 3;
+}
+.banner .top-bar-left a {
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 0.18px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.banner .logo {
+  text-align: center;
+  z-index: 3;
+}
+.banner .top-bar-right {
+  text-align: right;
+}
+.banner .top-bar-right a {
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 0.18px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.banner .top-bar-left a:hover,
+.banner .top-bar-right a:hover {
+  color: #6b8e23;
+  text-decoration: none;
+}
+.banner .top-bar-left i,
+.top-bar-right i {
+  font-size: 16px;
+  background-color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  color: #3e2d40;
+  vertical-align: middle;
+  padding-top: 5px;
+}
+.banner .banner-content {
+  padding: 300px 15px;
+}
+.banner .banner-content .content-col {
+  text-align: center;
+  z-index: 3;
+}
+.banner .banner-content .site-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  padding-right: 15px;
+}
+.banner .banner-content .site-title-desc {
+  font-size: inherit;
+  line-height: 25px;
+  letter-spacing: 0.45px;
+  margin-bottom: 51px;
+  width: 97%;
+}
+.banner .banner-content a.banner-btn {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: 0.6px;
+  font-weight: 700;
+  padding: 21px 32px 19px;
+  background-color: #6b8e23;
+  color: #fff;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+.banner .banner-content a.banner-btn:hover {
+  text-decoration: none;
+  color: #020202;
+}
+/*Service*/
+.service-section {
+  padding: 42px 15px;
+}
+.service-section .service-detail {
+  text-align: center;
+}
+.service-section .service-detail a:hover {
+  text-decoration: none;
+}
+.service-section .service-detail a:hover .service-title {
+  text-decoration: none;
+  color: #6b8e23;
+}
+.service-section .service-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 25px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  color: #000;
+  margin-bottom: 15px;
+}
+.service-section .service-desc {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 25px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+}
+.service-section .service-detail-img {
+  max-width: 90px;
+  height: auto;
+}

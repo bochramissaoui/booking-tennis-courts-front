@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="container">
+        <div class="login form">
+            <div *ngIf="error" class="alert alert-danger mb-2">{{error}}</div>
+
+            <header>Login</header>
+            <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+                <input type="text" placeholder="Enter your email" formControlName="username" class="form-control"
+                    [ngClass]="{ 'is-invalid':  (submitted || getFormValue.username.touched) && getFormValue.username.errors,
+                                 'is-valid': getFormValue.username.valid }">
+                <div *ngIf="(submitted || getFormValue.username.touched)
+                 && getFormValue.username.errors " class="invalid-feedback" style="margin-top: -1.3rem;">
+                    <div *ngIf="getFormValue.username.errors.required">Adresse email requise</div>
+                    <div *ngIf="getFormValue.username.errors.username">Veuillez saisir une adresse email valide</div>
+                </div>
+                <input placeholder="Mot de passe" type="password" formControlName="password" class="form-control"
+                    [ngClass]="{ 'is-invalid':  (submitted || getFormValue.password.touched) &&
+                       getFormValue.password.errors, 'is-valid': getFormValue.password.valid }">
+                <div *ngIf="(submitted || getFormValue.password.touched) && getFormValue.password.errors"
+                    class="invalid-feedback" style="margin-top: -1.3rem;">
+                    <div *ngIf="getFormValue.password.errors.required">Mot de passe requis</div>
+                </div>
+                <input type="submit" class="button" value="Login">
+            </form>
+            <div class="signup">
+                <span class="signup">Don't have an account?
+                    <a routerLink="/register">Signup</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
